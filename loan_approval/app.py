@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 
 page = st.sidebar.selectbox("Select a page", ["Prediction", "Insights"])
-model =joblib.load("rf_model.pkl")
-scaler =joblib.load("scaler.pkl")
-numeric_features =joblib.load("numeric_features.pkl")
+model =joblib.load("loan_approval/rf_model.pkl")
+scaler =joblib.load("loan_approval/scaler.pkl")
+numeric_features =joblib.load("loan_approval/numeric_features.pkl")
 cibil_score=600
 if page== "Prediction":
     st.title("Loan Approval Predictor")
@@ -30,7 +30,6 @@ if page== "Prediction":
     self_employed = st.selectbox("Self Employed", ["Yes", "No"])
     
     if st.button("Predict"):
-        # Create a single-row DataFrame
         if no_of_dependents is None:
             no_of_dependents=2.4987
         if income_annum is None:
@@ -84,7 +83,6 @@ elif page=="Insights":
     st.header(" Loan approval vs. CIBIL score ")
     
     cibil_score = st.slider("CIBIL Score", min_value=300, max_value=900,value=400)
-    # Load your cleaned data
     df = pd.read_csv("loan_approval_dataset.csv")
     df.columns = df.columns.str.strip()
     df['education'] = df['education'].str.strip()
