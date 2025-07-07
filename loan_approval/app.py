@@ -17,9 +17,9 @@ except ImportError:
 
 
 page = st.sidebar.selectbox("Select a page", ["Prediction", "Insights"])
-model =joblib.load("loan_approval/model.pkl")
-scaler =joblib.load("loan_approval/scaler.pkl")
-numeric_features =joblib.load("loan_approval/numeric_features.pkl")
+model =joblib.load("model.pkl")
+scaler =joblib.load("scaler.pkl")
+numeric_features =joblib.load("numeric_features.pkl")
 cibil_score=600
 if page== "Prediction":
     st.title("Loan Approval Predictor")
