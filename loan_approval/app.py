@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 page = st.sidebar.selectbox("Select a page", ["Prediction", "Insights"])
-model =joblib.load("loan_approval/rf_model.pkl")
+model =joblib.load("loan_approval/model.pkl")
 scaler =joblib.load("loan_approval/scaler.pkl")
 numeric_features =joblib.load("loan_approval/numeric_features.pkl")
 cibil_score=600
