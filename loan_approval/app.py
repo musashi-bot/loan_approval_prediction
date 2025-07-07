@@ -17,9 +17,9 @@ except ImportError:
 
 
 page = st.sidebar.selectbox("Select a page", ["Prediction", "Insights"])
-model =joblib.load("model.pkl")
-scaler =joblib.load("scaler.pkl")
-numeric_features =joblib.load("numeric_features.pkl")
+model =joblib.load("loan_approval/model.pkl")
+scaler =joblib.load("loan_approval/scaler.pkl")
+numeric_features =joblib.load("loan_approval/numeric_features.pkl")
 cibil_score=600
 if page== "Prediction":
     st.title("Loan Approval Predictor")
@@ -92,7 +92,7 @@ elif page=="Insights":
     st.header(" Loan approval vs. CIBIL score ")
     
     cibil_score = st.slider("CIBIL Score", min_value=300, max_value=900,value=400)
-    df = pd.read_csv("loan_approval_dataset.csv")
+    df = pd.read_csv("loan_approval/loan_approval_dataset.csv")
     df.columns = df.columns.str.strip()
     df['education'] = df['education'].str.strip()
     df['self_employed'] = df['self_employed'].str.strip()
